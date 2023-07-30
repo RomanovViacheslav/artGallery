@@ -1,6 +1,6 @@
 import { SelectProps as SelectPropsMUI } from '@mui/material';
-import { ChangeEventHandler } from 'react';
 import { ThemeType } from '../../theme';
+import { SelectEntity } from '../../domains';
 
 export interface StyledSelectProps {
   theme?: ThemeType;
@@ -9,7 +9,7 @@ export interface StyledSelectProps {
 
 export interface SelectProps extends SelectPropsMUI {
   isCreated?: boolean;
-  data: string[];
+  data?: SelectEntity[];
   onClear?: () => void;
   onInputChange?: (value: string[]) =>void;
   value: string | string[];

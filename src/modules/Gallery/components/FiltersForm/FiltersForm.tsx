@@ -2,32 +2,21 @@ import React, { useCallback } from 'react';
 import { Box, SelectChangeEvent } from '@mui/material';
 import { useFormik } from 'formik';
 import { Select, TextFieldComponent } from '../../../../components';
+import { INITIAL_VALUES } from './FiltersForm.constants';
+import { FormFiltersEntity } from '../../../../domains';
+import { useAppDispatch, useAppSelector } from '../../../../shared';
+import { updateFilters } from '../../slices';
 
 export const FiltersForm = () => {
-  const names = [
-    'Oliver Hansen',
-    'Van Henry',
-    'April Tucker',
-    'Ralph Hubbard',
-    'Omar Alexander',
-    'Carlos Abbott',
-    'Miriam Wagner',
-    'Bradley Wilkerson',
-    'Virginia Andrews',
-    'Kelly Snyder',
-  ];
+  const dispatch = useAppDispatch();
+  const { authors, locations } = useAppSelector((state) => state.gallery);
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const handleSubmit = (values: FormFiltersEntity) => {
+    dispatch(updateFilters(values));
   };
 
   const formik = useFormik({
-    initialValues: {
-      name: '',
-      author: '',
-      location: '',
-      created: [],
-    },
+    initialValues: INITIAL_VALUES,
     onSubmit: handleSubmit,
   });
 
@@ -54,8 +43,6 @@ export const FiltersForm = () => {
 
   const handleYearInputChange = useCallback((value: string[]) => {
     formik.setFieldValue('created', value);
-    console.log('d');
-
     if (
       (value[0].length === 4 && value[1].length === 0) ||
       (value[1].length === 4 && value[0].length === 0) ||
@@ -85,7 +72,7 @@ export const FiltersForm = () => {
         name="Author"
         value={formik.values.author}
         onChange={handleSelectChange('author')}
-        data={names}
+        data={authors}
         onClear={() => handleClearSelect('author')}
       />
 
@@ -93,7 +80,7 @@ export const FiltersForm = () => {
         name="Location"
         value={formik.values.location}
         onChange={handleSelectChange('location')}
-        data={names}
+        data={locations}
         onClear={() => handleClearSelect('location')}
       />
 
@@ -103,7 +90,6 @@ export const FiltersForm = () => {
         name="Created"
         value={formik.values.created}
         onInputChange={handleYearInputChange}
-        data={names}
       />
     </Box>
   );

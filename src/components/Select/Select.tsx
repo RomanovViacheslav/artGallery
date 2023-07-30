@@ -48,9 +48,10 @@ export const Select = memo(
               return name;
             }
             if (typeof selected === 'string' && selected) {
+              const selectedElem = data?.find((elem) => elem.id === selected);
               return (
                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                  <Typography>{selected}</Typography>
+                  <Typography>{selectedElem?.name}</Typography>
                   <StyledIconWrapper onMouseDown={handleClearSelect}>
                     <ExitIcon />
                   </StyledIconWrapper>
@@ -84,9 +85,9 @@ export const Select = memo(
           }}
         >
           {!isCreated ? (
-            data.map((elem) => (
-              <StyledMenuItem key={elem} value={elem}>
-                {elem}
+            data?.map((elem) => (
+              <StyledMenuItem key={elem.id} value={elem.id}>
+                {elem.name}
               </StyledMenuItem>
             ))
           ) : (
