@@ -5,3 +5,5 @@ export * from './ArrowBackPaginationIcon';
 export * from './ArrowForwardPaginationIcon';
 export * from './DoubleArrowBackIcon';
 export * from './DoubleArrowForwardIcon';
+export * from './LogoIcon';
+export * from './ToggleIcon';

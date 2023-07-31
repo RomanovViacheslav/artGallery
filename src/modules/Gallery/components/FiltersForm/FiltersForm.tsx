@@ -1,58 +1,19 @@
-import React, { useCallback } from 'react';
-import { Box, SelectChangeEvent } from '@mui/material';
-import { useFormik } from 'formik';
+import React, { memo } from 'react';
+import { Box } from '@mui/material';
 import { Select, TextFieldComponent } from '../../../../components';
-import { INITIAL_VALUES } from './FiltersForm.constants';
-import { FormFiltersEntity } from '../../../../domains';
-import { useAppDispatch, useAppSelector } from '../../../../shared';
-import { updateFilters } from '../../slices';
+import { useFormFilters } from './helpers';
 
 export const FiltersForm = () => {
-  const dispatch = useAppDispatch();
-  const { authors, locations, filters } = useAppSelector((state) => state.gallery);
-
-  const handleSubmit = (values: FormFiltersEntity) => {
-    dispatch(updateFilters(values));
-  };
-
-  const formik = useFormik({
-    initialValues: INITIAL_VALUES,
-    onSubmit: handleSubmit,
-  });
-
-  const handleSelectChange = useCallback(
-    (fieldName: string) => (event: SelectChangeEvent<any>) => {
-      formik.setFieldValue(fieldName, event.target.value);
-      formik.handleSubmit();
-    },
-    [],
-  );
-
-  const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    formik.handleChange(event);
-    formik.handleSubmit();
-  }, []);
-
-  const handleClearSelect = useCallback(
-    (fieldName: string) => {
-      formik.setFieldValue(fieldName, '');
-      formik.handleSubmit();
-    },
-    [formik],
-  );
-
-  const handleYearInputChange = useCallback((value: string[]) => {
-    formik.setFieldValue('created', value);
-    if (
-      (value[0].length === 4 && value[1].length === 0) ||
-      (value[1].length === 4 && value[0].length === 0) ||
-      (value[1].length === 4 && value[0].length === 4) ||
-      (value[1].length === 0 && value[0].length === 0)
-    ) {
-      formik.handleSubmit();
-    }
-  }, []);
-
+  const {
+    formik,
+    authors,
+    locations,
+    filters,
+    handleSelectChange,
+    handleInputChange,
+    handleClearSelect,
+    handleYearInputChange,
+  } = useFormFilters();
   return (
     <Box
       component="form"

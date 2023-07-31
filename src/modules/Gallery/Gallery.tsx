@@ -1,4 +1,5 @@
 import React, { useEffect, memo, useCallback } from 'react';
+import { Box } from '@mui/system';
 import { FiltersForm } from './components';
 import { fetchAuthors, fetchLocations, fetchPaintings, setCurrentPage } from './slices';
 import { useAppDispatch, useAppSelector } from '../../shared';
@@ -26,7 +27,7 @@ export const Gallery = memo(() => {
   }, []);
 
   return (
-    <>
+    <Box width="100%" paddingTop="35px" paddingBottom="100px">
       <FiltersForm />
       {!loading ? (
         <>
@@ -48,6 +49,6 @@ export const Gallery = memo(() => {
       ) : (
         <Loader />
       )}
-    </>
+    </Box>
   );
 });
