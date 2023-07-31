@@ -14,6 +14,7 @@ const initialState: GalleryState = {
   error: null,
   locations: [],
   authors: [],
+  currentPage: 1,
 };
 
 const gallerySlice = createSlice({
@@ -22,6 +23,9 @@ const gallerySlice = createSlice({
   reducers: {
     updateFilters: (state, action: PayloadAction<GalleryState['filters']>) => {
       state.filters = action.payload;
+    },
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -47,5 +51,5 @@ const gallerySlice = createSlice({
   },
 });
 
-export const { updateFilters } = gallerySlice.actions;
+export const { updateFilters, setCurrentPage } = gallerySlice.actions;
 export default gallerySlice.reducer;

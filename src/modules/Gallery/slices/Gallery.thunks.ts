@@ -5,10 +5,10 @@ import { mapPaintings, mapSelect, mapToExternalFilters } from '../helpers';
 
 export const fetchPaintings = createAsyncThunk(
   'gallery/fetchPaintings',
-  async (_, { getState }) => {
+  async (page: number, { getState }) => {
     const state = getState() as RootState;
     const { filters } = state.gallery;
-    const res = await paintingsAgentInstance.filterPaintings(mapToExternalFilters(filters));
+    const res = await paintingsAgentInstance.filterPaintings(mapToExternalFilters(filters), page);
     return mapPaintings(res);
   },
 );

@@ -33,10 +33,6 @@ export const Select = memo(
       }
     };
 
-    const theme = useTheme();
-
-    console.log(theme);
-
     const handleOpen = () => {
       setOpen(true);
     };

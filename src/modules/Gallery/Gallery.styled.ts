@@ -4,7 +4,7 @@ import { StyledGalleryProps } from './Gallery.types';
 
 export const StyledCardsContainer = styled(Box)<StyledGalleryProps>(({ theme }) => ({
   marginTop: '45px',
-  marginBottom: '40px',
+  paddingBottom: '40px',
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
   gap: '20px',
@@ -17,13 +17,13 @@ export const StyledCardsContainer = styled(Box)<StyledGalleryProps>(({ theme }) 
 
 export const StyledCardWrapper = styled(Box)<StyledGalleryProps>(({ theme }) => ({
   width: '100%',
-  maxHeight: '275px',
+  height: '275px',
   [theme.breakpoints.down('lg')]: {
     maxHeight: '230px',
   },
   [theme.breakpoints.down('md')]: {
     maxHeight: '249px',
   },
-  [theme.breakpoints.down('sm')]: { minHeight: '205px' },
+  [theme.breakpoints.down('sm')]: { maxHeight: '205px' },
   [theme.breakpoints.down('xs')]: {},
 }));

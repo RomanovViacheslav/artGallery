@@ -8,6 +8,7 @@ export interface GalleryState {
   authors: SelectEntity[];
   loading: boolean;
   error: string | null;
+  currentPage: number,
 }
 
 export interface StyledGalleryProps {

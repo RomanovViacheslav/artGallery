@@ -21,12 +21,14 @@ export class PaintingsAgent extends BasicAgent {
     }
   }
 
-  async filterPaintings(filters: PaintingsFilters): Promise<PaintingsResponseSuccess[]> {
+  async filterPaintings(
+    filters: PaintingsFilters,
+    page: number = 1,
+    limit: number = 12,
+  ): Promise<PaintingsResponseSuccess[]> {
     try {
-      console.log(filters);
-
       const query = PaintingsAgent.buildQueryParams(filters);
-      const { data } = await this._http.get(`/paintings${query}`);
+      const { data } = await this._http.get(`/paintings${query}&_page=${page}&_limit=${limit}`);
       return data;
     } catch (error: unknown) {
       throw new Error((error as Error).message);

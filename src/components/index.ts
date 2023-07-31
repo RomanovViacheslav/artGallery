@@ -4,3 +4,4 @@ export * from './Loader';
 export * from './TextFieldComponent';
 export * from './InputYear';
 export * from './Card';
+export * from './Pagination';

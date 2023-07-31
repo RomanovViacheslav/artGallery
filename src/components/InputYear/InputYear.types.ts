@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from 'react';
 import { ThemeType } from '../../theme';
 
 export interface StyledInputYearProps {
