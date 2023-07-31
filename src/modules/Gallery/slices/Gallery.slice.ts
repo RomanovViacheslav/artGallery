@@ -1,13 +1,13 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { GalleryState } from '../GalLery.types';
 import { fetchAuthors, fetchLocations, fetchPaintings } from './Gallery.thunks';
+import { GalleryState } from '../Gallery.types';
 
 const initialState: GalleryState = {
   filters: {
     name: '',
     author: '',
     location: '',
-    created: [],
+    created: ['', ''],
   },
   paintings: [],
   loading: false,

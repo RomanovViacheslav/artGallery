@@ -8,4 +8,5 @@ export interface StyledInputYearProps {
 export interface InputYearProps {
   onChange?: (value: string[]) => void;
   value: string[];
+  defaultValue: string[];
 }

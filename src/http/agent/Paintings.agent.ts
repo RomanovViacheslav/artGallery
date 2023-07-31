@@ -1,3 +1,4 @@
+import { APP_BACKEND_URL } from '../../shared';
 import {
   PaintingsResponseSuccess,
   PaintingsFilters,
@@ -8,7 +9,7 @@ import { BasicAgent } from './Basic.agent';
 
 export class PaintingsAgent extends BasicAgent {
   constructor() {
-    super('https://test-front.framework.team/', {});
+    super(APP_BACKEND_URL, {});
   }
 
   async getAllPaintings(page: number = 1, limit: number = 12): Promise<PaintingsResponseSuccess[]> {

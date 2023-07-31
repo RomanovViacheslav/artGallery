@@ -1,4 +1,5 @@
 import { FormFiltersEntity, PaintingEntity, SelectEntity } from '../../domains';
+import { ThemeType } from '../../theme';
 
 export interface GalleryState {
   filters: FormFiltersEntity;
@@ -7,4 +8,8 @@ export interface GalleryState {
   authors: SelectEntity[];
   loading: boolean;
   error: string | null;
+}
+
+export interface StyledGalleryProps {
+  theme?: ThemeType;
 }

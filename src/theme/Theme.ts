@@ -57,11 +57,16 @@ const darkColorTheme = {
 };
 
 const breakpoints = {
-  values: {
-    xs: 320,
-    sm: 768,
-    md: 1024,
-    lg: 1366,
+  xs: 320,
+  sm: 768,
+  md: 1024,
+  lg: 1366,
+  xl: 1920,
+};
+
+const breakpointsValues = {
+  breakpoints: {
+    values: breakpoints,
   },
 };
 
@@ -144,15 +149,15 @@ const ScrollbarTheme = (themeMode: 'light' | 'dark') => {
 
 const lightTheme = createTheme({
   ...lightColorTheme,
-  ...breakpoints,
   ...TypographyTheme,
   ...ScrollbarTheme('light'),
+  ...breakpointsValues,
 });
 const darkTheme = createTheme({
   ...darkColorTheme,
-  ...breakpoints,
   ...TypographyTheme,
   ...ScrollbarTheme('dark'),
+  ...breakpointsValues,
 });
 
 export { lightTheme, darkTheme };

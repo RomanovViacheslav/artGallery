@@ -9,7 +9,7 @@ import { updateFilters } from '../../slices';
 
 export const FiltersForm = () => {
   const dispatch = useAppDispatch();
-  const { authors, locations } = useAppSelector((state) => state.gallery);
+  const { authors, locations, filters } = useAppSelector((state) => state.gallery);
 
   const handleSubmit = (values: FormFiltersEntity) => {
     dispatch(updateFilters(values));
@@ -46,7 +46,8 @@ export const FiltersForm = () => {
     if (
       (value[0].length === 4 && value[1].length === 0) ||
       (value[1].length === 4 && value[0].length === 0) ||
-      (value[1].length === 4 && value[0].length === 4)
+      (value[1].length === 4 && value[0].length === 4) ||
+      (value[1].length === 0 && value[0].length === 0)
     ) {
       formik.handleSubmit();
     }
@@ -60,6 +61,11 @@ export const FiltersForm = () => {
       justifyContent="space-between"
       gap="20px"
       width="100%"
+      sx={(theme) => ({
+        [theme.breakpoints.down('sm')]: {
+          flexDirection: 'column',
+        },
+      })}
     >
       <TextFieldComponent
         type="text"
@@ -88,6 +94,7 @@ export const FiltersForm = () => {
         isCreated
         multiple
         name="Created"
+        defaultValue={filters.created}
         value={formik.values.created}
         onInputChange={handleYearInputChange}
       />

@@ -19,18 +19,20 @@ export const StyledInput = styled(OutlinedInput)<StyledInputProps>(({ theme }) =
   boxSizing: 'border-box',
   // padding: '15px',
 
-  [theme.breakpoints.up('xs')]: {
-    maxWidth: '280px',
-  },
-  [theme.breakpoints.up('sm')]: {
-    maxWidth: '160px',
-  },
-  [theme.breakpoints.up('md')]: {
-    maxWidth: '220px',
-  },
-  [theme.breakpoints.up('lg')]: {
-    maxWidth: '265px',
-  },
+  // [theme.breakpoints.down('xs')]: {
+  // },
+  // [theme.breakpoints.down('sm')]: {
+  //   minWidth: '160px',
+  //   '&&': {
+  //     maxWidth: '100%',
+  //   },
+  // },
+  // [theme.breakpoints.down('md')]: {
+  //   maxWidth: '220px',
+  // },
+  // [theme.breakpoints.down('lg')]: {
+  //   maxWidth: '265px',
+  // },
 
   // '& .MuiInputBase-input': {
   //   padding: 0,
@@ -41,9 +43,4 @@ export const StyledInput = styled(OutlinedInput)<StyledInputProps>(({ theme }) =
       borderColor: theme.palette.primary.dark,
 
   },
-
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('sm')]: {},
-  [theme.breakpoints.up('md')]: {},
-  [theme.breakpoints.up('lg')]: {},
 }));

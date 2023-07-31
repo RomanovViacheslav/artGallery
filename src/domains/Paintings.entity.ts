@@ -18,3 +18,13 @@ export interface SelectEntity {
   id: string;
   name: string;
 }
+
+export interface LocationEntity {
+  id: string;
+  location: string;
+}
+
+export interface AuthorEntity {
+  id: string;
+  name: string;
+}

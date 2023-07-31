@@ -2,7 +2,7 @@ export interface PaintingsResponseSuccess {
   id: number;
   authorId: number;
   created: string;
-  imgUrl: string;
+  imageUrl: string;
   locationId: number;
   name: string;
 }

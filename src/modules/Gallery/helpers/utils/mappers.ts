@@ -15,7 +15,7 @@ export const mapPaintings = (data: PaintingsResponseSuccess[]): PaintingEntity[]
         id: String(painting.id),
         authorId: String(painting.authorId),
         created: painting.created,
-        imgUrl: painting.imgUrl,
+        imgUrl: painting.imageUrl,
         locationId: String(painting.locationId),
         name: painting.name,
       });

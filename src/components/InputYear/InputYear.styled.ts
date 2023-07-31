@@ -8,30 +8,32 @@ export const StyledYearInput = styled(InputBase)<StyledInputYearProps>(({ theme 
     border: 'none',
     background: theme.palette.secondary.main,
     padding: '15px',
-    [theme.breakpoints.up('xs')]: {
+    maxWidth: '95px',
+
+    [theme.breakpoints.down('lg')]: {
       maxWidth: '110px',
     },
-      [theme.breakpoints.up('lg')]: {
-      maxWidth: '95px',
+    [theme.breakpoints.down('sm')]: {
+        maxWidth: '110px',
     },
 
   }));
 
   export const StyledSelectWrapper = styled(Box)<StyledInputYearProps>(({ theme }) => ({
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     padding: '20px',
-    [theme.breakpoints.up('xs')]: {
-
-    },
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.down('lg')]: {
+      padding: 0,
       flexDirection: 'column',
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.down('md')]: {
     },
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'row',
+    },
+    [theme.breakpoints.down('xs')]: {
     },
   }));
 
@@ -43,15 +45,15 @@ export const StyledYearInput = styled(InputBase)<StyledInputYearProps>(({ theme 
     },
 
     margin: '0 6px',
-    [theme.breakpoints.up('xs')]: {
+    [theme.breakpoints.down('lg')]: {
+      margin: '15px 0',
+    },
+    [theme.breakpoints.down('md')]: {
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 6px',
+    },
+    [theme.breakpoints.down('xs')]: {
 
-    },
-    [theme.breakpoints.up('sm')]: {
-      margin: '10px 0',
-    },
-    [theme.breakpoints.up('md')]: {
-    },
-    [theme.breakpoints.up('lg')]: {
-      margin: '0 10px',
     },
   }));

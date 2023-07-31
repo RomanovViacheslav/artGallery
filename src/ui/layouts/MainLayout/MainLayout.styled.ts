@@ -5,9 +5,10 @@ import { StyledBoxProps } from './MainLayout.types';
 export const StyledBox = styled(Box)<StyledBoxProps>(({ theme }) => ({
   height: '100vh',
   margin: '0 auto',
-  maxWidth: '1366px',
+  // maxWidth: '1366px',
+  // padding: '0 123px',
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.up('xs')]: {
     padding: '0 20px',
   },
   [theme.breakpoints.up('sm')]: {
@@ -17,6 +18,10 @@ export const StyledBox = styled(Box)<StyledBoxProps>(({ theme }) => ({
     padding: '0 42px',
   },
   [theme.breakpoints.up('lg')]: {
+    padding: '0 123px',
+    maxWidth: '1366px',
+  },
+  [theme.breakpoints.up('xl')]: {
     padding: '0 123px',
   },
 }));

@@ -1,4 +1,4 @@
 import React from 'react';
 import { StyledLoader } from './Loader.styled';
 
-export const Loader = () => <StyledLoader color="primary" />;
+export const Loader = () => <StyledLoader color="success" />;

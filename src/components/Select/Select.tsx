@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import React, { memo } from 'react';
 import { Box } from '@mui/system';
+import { useTheme } from '@emotion/react';
 import { InputBase } from '../InputBase';
 import {
   StyledFormControl,
@@ -13,7 +14,17 @@ import { SelectProps } from './Select.types';
 import { InputYear } from '../InputYear';
 
 export const Select = memo(
-  ({ isCreated, value, onChange, data, name, onClear, onInputChange, ...props }: SelectProps) => {
+  ({
+    isCreated,
+    value,
+    onChange,
+    data,
+    name,
+    onClear,
+    onInputChange,
+    defaultValue,
+    ...props
+  }: SelectProps) => {
     const [open, setOpen] = React.useState<boolean>(false);
     const handleClearSelect = (event: React.MouseEvent<HTMLDivElement>) => {
       event.stopPropagation();
@@ -21,6 +32,10 @@ export const Select = memo(
         onClear();
       }
     };
+
+    const theme = useTheme();
+
+    console.log(theme);
 
     const handleOpen = () => {
       setOpen(true);
@@ -91,7 +106,11 @@ export const Select = memo(
               </StyledMenuItem>
             ))
           ) : (
-            <InputYear value={value as string[]} onChange={onInputChange} />
+            <InputYear
+              value={value as string[]}
+              onChange={onInputChange}
+              defaultValue={defaultValue as string[]}
+            />
           )}
         </StyledSelect>
       </StyledFormControl>
