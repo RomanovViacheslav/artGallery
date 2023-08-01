@@ -9,9 +9,8 @@ import { getName } from './helpers';
 
 export const Gallery = memo(() => {
   const dispatch = useAppDispatch();
-  const { paintings, filters, locations, authors, loading, currentPage } = useAppSelector(
-    (state) => state.gallery,
-  );
+  const { paintings, filters, locations, authors, loading, currentPage, totalCount } =
+    useAppSelector((state) => state.gallery);
 
   useEffect(() => {
     dispatch(fetchPaintings(currentPage));
@@ -44,7 +43,11 @@ export const Gallery = memo(() => {
               </StyledCardWrapper>
             ))}
           </StyledCardsContainer>
-          <Pagination page={currentPage} onChange={handlePageChange} />
+          <Pagination
+            page={currentPage}
+            onChange={handlePageChange}
+            count={Math.ceil(totalCount / 12)}
+          />
         </>
       ) : (
         <Loader />

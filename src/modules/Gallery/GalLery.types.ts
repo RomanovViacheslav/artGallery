@@ -9,6 +9,7 @@ export interface GalleryState {
   loading: boolean;
   error: string | null;
   currentPage: number,
+  totalCount: number,
 }
 
 export interface StyledGalleryProps {

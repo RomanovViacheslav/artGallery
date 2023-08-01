@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import { APP_BACKEND_URL } from '../../shared';
 import {
   PaintingsResponseSuccess,
@@ -25,11 +26,14 @@ export class PaintingsAgent extends BasicAgent {
     filters: PaintingsFilters,
     page: number = 1,
     limit: number = 12,
-  ): Promise<PaintingsResponseSuccess[]> {
+  ): Promise<{ paintings: PaintingsResponseSuccess[]; totalCount: number }> {
     try {
       const query = PaintingsAgent.buildQueryParams(filters);
-      const { data } = await this._http.get(`/paintings${query}&_page=${page}&_limit=${limit}`);
-      return data;
+      const response: AxiosResponse<PaintingsResponseSuccess[]> = await this._http.get(
+        `/paintings${query}&_page=${page}&_limit=${limit}`,
+      );
+      const totalCount = parseInt(response.headers['x-total-count'] ?? '0', 10);
+      return { paintings: response.data, totalCount };
     } catch (error: unknown) {
       throw new Error((error as Error).message);
     }

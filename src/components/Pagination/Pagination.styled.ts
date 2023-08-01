@@ -30,7 +30,7 @@ export const StyledPagination = styled(Pagination)<StyledPaginationProps>(({ the
         },
     },
     '& .MuiPagination-ul': {
-        '& > li:first-child .MuiPaginationItem-root': {
+        '& > li:first-of-type .MuiPaginationItem-root': {
           borderTopLeftRadius: '8px',
           borderBottomLeftRadius: '8px',
         },

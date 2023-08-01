@@ -12,7 +12,6 @@ import { PaginationProps } from './Pagination.types';
 export const Pagination = memo(({ ...props }: PaginationProps) => (
   <StyledPagination
     {...props}
-    count={3}
     color="primary"
     variant="outlined"
     shape="rounded"

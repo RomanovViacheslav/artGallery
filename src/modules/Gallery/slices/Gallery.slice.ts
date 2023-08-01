@@ -15,6 +15,7 @@ const initialState: GalleryState = {
   locations: [],
   authors: [],
   currentPage: 1,
+  totalCount: 0,
 };
 
 const gallerySlice = createSlice({
@@ -36,7 +37,8 @@ const gallerySlice = createSlice({
       })
       .addCase(fetchPaintings.fulfilled, (state, action) => {
         state.loading = false;
-        state.paintings = action.payload;
+        state.paintings = action.payload.paintings;
+        state.totalCount = action.payload.totalCount;
       })
       .addCase(fetchPaintings.rejected, (state, action) => {
         state.loading = false;
