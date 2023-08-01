@@ -18,7 +18,7 @@ export const Card = memo(({ image, name, location, author, created, ...props }: 
   return (
     <StyledCard>
       {imageLoaded ? (
-        <CardMedia height="100%" component="img" image={APP_BACKEND_URL + image} alt={name} />
+        <CardMedia height="100%" component="img" image={APP_BACKEND_URL + image} alt={name} loading="lazy" />
       ) : (
         <Loader />
       )}

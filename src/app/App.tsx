@@ -14,7 +14,7 @@ const App = () => {
     <ErrorBoundary>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <BrowserRouter>
+        <BrowserRouter >
           <Router />
         </BrowserRouter>
       </ThemeProvider>
