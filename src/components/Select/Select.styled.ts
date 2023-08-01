@@ -6,14 +6,14 @@ import { InputBase } from '../InputBase';
 export const StyledFormControl = styled(FormControl)<StyledSelectProps>(({ theme }) => ({
   width: '100%',
  [theme.breakpoints.down('lg')]: {
-    // maxWidth: '265px',
+
   },
   [theme.breakpoints.down('md')]: {
-    // maxWidth: '220px',
+
   },
 [theme.breakpoints.down('sm')]: {
     minWidth: '160px',
-    // maxWidth: '100%',
+
   },
 
 }));
@@ -38,6 +38,12 @@ export const StyledSelect = styled(Select)<StyledSelectProps>(({ theme, open }) 
 
     },
   },
+  '& p': {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    maxWidth: '80%',
+  },
   '& svg': {
     position: 'absolute',
     fill: theme.palette.info.main,
@@ -54,8 +60,6 @@ export const StyledSelect = styled(Select)<StyledSelectProps>(({ theme, open }) 
 
 export const StyledMenuItem = styled(MenuItem)<StyledSelectProps>(({ theme }) => ({
   height: '40px',
-  // width: '100%',
-  // minHeight: 'auto',
   padding: '0 30px',
   fontSize: theme.typography.body2.fontSize,
   fontFamily: theme.typography.body2.fontFamily,
@@ -71,11 +75,4 @@ export const StyledMenuItem = styled(MenuItem)<StyledSelectProps>(({ theme }) =>
 }));
 
 export const StyledIconWrapper = styled(Box)<StyledSelectProps>(({ theme }) => ({
-  '& svg': {
-    position: 'static',
-    marginRight: '35px',
-    transform: 'none',
-    pointerEvents: 'auto',
-  },
-
 }));

@@ -61,7 +61,20 @@ export const Select = memo(
             if (typeof selected === 'string' && selected) {
               const selectedElem = data?.find((elem) => elem.id === selected);
               return (
-                <Box display="flex" justifyContent="space-between" alignItems="center">
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{
+                  '&& svg': {
+                      position: 'static',
+                      marginRight: '35px',
+                      transform: 'none',
+                      pointerEvents: 'auto',
+
+                  },
+                }}
+                >
                   <Typography>{selectedElem?.name}</Typography>
                   <StyledIconWrapper onMouseDown={handleClearSelect}>
                     <ExitIcon />

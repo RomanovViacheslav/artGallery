@@ -10,12 +10,9 @@ export const useFormFilters = () => {
   const dispatch = useAppDispatch();
   const { authors, locations, filters } = useAppSelector((state) => state.gallery);
 
-  const handleSubmit = useCallback(
-    (values: FormFiltersEntity) => {
-      dispatch(updateFilters(values));
-    },
-    [],
-  );
+  const handleSubmit = useCallback((values: FormFiltersEntity) => {
+    dispatch(updateFilters(values));
+  }, []);
 
   const formik = useFormik({
     initialValues: INITIAL_VALUES,
@@ -49,13 +46,15 @@ export const useFormFilters = () => {
   const handleYearInputChange = useCallback(
     (value: string[]) => {
       formik.setFieldValue('created', value);
-      if (
-        (value[0].length === 4 && value[1].length === 0) ||
-        (value[1].length === 4 && value[0].length === 0) ||
-        (value[1].length === 4 && value[0].length === 4) ||
-        (value[1].length === 0 && value[0].length === 0)
-      ) {
-        formik.handleSubmit();
+      if (value) {
+        if (
+          (value[0].length === 4 && value[1].length === 0) ||
+          (value[1].length === 4 && value[0].length === 0) ||
+          (value[1].length === 4 && value[0].length === 4) ||
+          (value[1].length === 0 && value[0].length === 0)
+        ) {
+          formik.handleSubmit();
+        }
       }
     },
     [formik.handleSubmit],
